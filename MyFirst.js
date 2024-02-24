@@ -1,13 +1,16 @@
-var url = require('url');
-var adr = 'http://localhost:8080/default.htm?year=2017&month=february';
-var q = url.parse(adr, true);
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
 
-console.log(q.host); //returns 'localhost:8080'
-console.log(q.pathname); //returns '/default.htm'
-console.log(q.search); //returns '?year=2017&month=february'
+//Create an event handler:
+var myEventHandler = function () {
+  console.log('I hear a scream!');
+}
 
-var qdata = q.query; //returns an object: { year: 2017, month: 'february' }
-console.log(qdata.month); //returns 'february'
+//Assign the event handler to an event:
+eventEmitter.on('scream', myEventHandler);
+
+//Fire the 'scream' event:
+eventEmitter.emit('scream');
 
 exports.myDateTime = function () {
     return Date();
