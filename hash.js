@@ -1,5 +1,5 @@
 const { createHash } = require('crypto');
 
-function hash(){
-    return createHash('sha256');
+function hash(input){
+    return createHash('sha256').update(input).digest('hex');
 }
