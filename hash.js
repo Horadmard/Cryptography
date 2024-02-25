@@ -65,7 +65,7 @@
 
 const { createCipheriv, randomBytes, createDecipheriv } = require('crypto');
 
-const massage = 'i love you♥';
+const massage = 'i love you ♥';
 const key = randomBytes(32);
 const iv = randomBytes(16);
 
@@ -78,6 +78,6 @@ const encryptrdMassage = cipher.update(massage, 'utf8', 'hex') + cipher.final('h
 /// Decrypt
 
 const decipher = createDecipheriv('aes256', key, iv);
-const decryptedMassage = decipher.update(massage, 'utf8', 'hex') + decipher.final('hex');
+const decryptedMassage = decipher.update(massage, 'hex', 'utf8') + decipher.final('utf8');
 
 
