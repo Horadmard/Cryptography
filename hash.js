@@ -18,32 +18,53 @@
 
 /// ------------------------------------------- Salt
 
-const { scryptSync, randomBytes } = require('crypto');
-const { buffer } = require('stream/consumers');
+// const { scryptSync, randomBytes } = require('crypto');
+// const { buffer } = require('stream/consumers');
 
-function signup(email, password) {
-    const salt = randomBytes(16).toString('hex');
-    const hashedpassword = scryptSync(password, salt, 64);
+// function signup(email, password) {
+//     const salt = randomBytes(16).toString('hex');
+//     const hashedpassword = scryptSync(password, salt, 64);
 
-    const user = { email, password: `${salt}:${hashedpassword}` }
-    users.push(user);
-    return user
-}
+//     const user = { email, password: `${salt}:${hashedpassword}` }
+//     users.push(user);
+//     return user
+// }
 
-function login(email, password) {
-    const user = users.find(v => v.email === email);
+// function login(email, password) {
+//     const user = users.find(v => v.email === email);
 
-    cont[salt, key] = user.password.split(':');
-    const hashedBuffer = scryptSync(password, salt, 64);
+//     cont[salt, key] = user.password.split(':');
+//     const hashedBuffer = scryptSync(password, salt, 64);
 
-    const keyBuffer = Buffer.form(key, 'hex');
-    const match = timingSafeEqual(hashedBuffer, keyBuffer);
+//     const keyBuffer = Buffer.form(key, 'hex');
+//     const match = timingSafeEqual(hashedBuffer, keyBuffer);
 
-    if (match) {
-        return 'login success!'
-    } else {
-        return 'login failed!'
-    }
+//     if (match) {
+//         return 'login success!'
+//     } else {
+//         return 'login failed!'
+//     }
 
-}
+// }
+
+/// ------------------------------------------- Hmac
+// const {createHmac} = require('crypto')
+// const key = 'super-secret!';
+// const massage = 'boo!'
+
+// const hmac = createHmac('sha256', key).update(massage).digest('hex');
+
+// console.log(hmac);
+
+// const key2 = 'other-password';
+// const hmac2 = createHmac('sha256', key2).update(massage).digest('hex');
+
+// console.log(hmac2);
+
+/// ------------------------------------------- Ecnryption
+
+const {createCipheriv, randomBytes, createDecipheriv} = require('crypto');
+const massage = 'i love you♥';
+const key = randomBytes(32);
+const iv = randomBytes(16);
 
