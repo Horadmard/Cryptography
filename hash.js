@@ -63,8 +63,21 @@
 
 /// ------------------------------------------- Ecnryption
 
-const {createCipheriv, randomBytes, createDecipheriv} = require('crypto');
+const { createCipheriv, randomBytes, createDecipheriv } = require('crypto');
+
 const massage = 'i love you♥';
 const key = randomBytes(32);
 const iv = randomBytes(16);
+
+const cipher = createCipheriv('aes256', key, iv)
+
+/// Encrypt
+
+const encryptrdMassage = cipher.update(massage, 'utf8', 'hex') + cipher.final('hex');
+
+/// Decrypt
+
+const decipher = createDecipheriv('aes256', key, iv);
+const decryptedMassage = decipher.update(massage, 'utf8', 'hex') + decipher.final('hex');
+
 
