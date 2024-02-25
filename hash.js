@@ -19,6 +19,7 @@ console.log(hash1 == hash2 ? 'good password' : 'password does not match');
 /// Salt
 
 const { scryptSync, randomBytes } = require('crypto');
+const { buffer } = require('stream/consumers');
 
 function signup(email, password) {
     const salt = randomBytes(16).toString('hex');
@@ -33,6 +34,9 @@ function login(email, password) {
     const user = users.find(v => v.email === email);
 
     cont[salt, key] = user.password.split(':');
+    const hashedBuffer = scryptSync(password, salt, 64);
+
+    const keyBuffer = Buffer.form(key, 'hex');
 
 }
 
