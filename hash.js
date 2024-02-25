@@ -61,7 +61,7 @@
 
 // console.log(hmac2);
 
-/// ------------------------------------------- Ecnryption
+/// ------------------------------------------- Ecnryption using aes256
 
 const { createCipheriv, randomBytes, createDecipheriv } = require('crypto');
 
