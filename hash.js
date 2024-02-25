@@ -74,10 +74,11 @@ const cipher = createCipheriv('aes256', key, iv)
 /// Encrypt
 
 const encryptrdMassage = cipher.update(massage, 'utf8', 'hex') + cipher.final('hex');
+// console.log(encryptrdMassage);
 
 /// Decrypt
 
 const decipher = createDecipheriv('aes256', key, iv);
-const decryptedMassage = decipher.update(massage, 'hex', 'utf8') + decipher.final('utf8');
+const decryptedMassage = decipher.update(encryptrdMassage, 'hex', 'utf8') + decipher.final('utf8');
 
-
+console.log(massage + ' -> ' + encryptrdMassage + ' -> ' + decryptedMassage);
