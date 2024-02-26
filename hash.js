@@ -86,10 +86,10 @@
 /// ------------------------------------------- Ecnryption public-key
 
 const { generateKeyPairSync } = require('crypto');
-const { publicKey, privateKey } = generateKeyPareSync('rsa', {
+const { publicKey, privateKey } = generateKeyPairSync('rsa', {
     modulusLength: 2048,
     publicKeyEncoding: {
-        type: 'pkcs8',
+        type: 'spki',
         format: 'pem',
     },
 
