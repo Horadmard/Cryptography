@@ -17,31 +17,6 @@
 // console.log(hash1 == hash2 ? 'good password' : 'password does not match');
 
 
-
-
-
-/// ------------------------------------------- Ecnryption using aes256
-
-// const { createCipheriv, randomBytes, createDecipheriv } = require('crypto');
-
-// const massage = 'i love you ♥';
-// const key = randomBytes(32);
-// const iv = randomBytes(16);
-
-// const cipher = createCipheriv('aes256', key, iv)
-
-// /// Encrypt
-
-// const encryptrdMassage = cipher.update(massage, 'utf8', 'hex') + cipher.final('hex');
-// // console.log(encryptrdMassage);
-
-// /// Decrypt
-
-// const decipher = createDecipheriv('aes256', key, iv);
-// const decryptedMassage = decipher.update(encryptrdMassage, 'hex', 'utf8') + decipher.final('utf8');
-
-// console.log(massage + ' -> ' + encryptrdMassage + ' -> ' + decryptedMassage);
-
 /// ------------------------------------------- Ecnryption public-key
 
 const { generateKeyPairSync } = require('crypto');
