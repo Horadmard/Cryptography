@@ -63,29 +63,29 @@
 
 /// ------------------------------------------- Ecnryption using aes256
 
-const { createCipheriv, randomBytes, createDecipheriv } = require('crypto');
+// const { createCipheriv, randomBytes, createDecipheriv } = require('crypto');
 
-const massage = 'i love you ♥';
-const key = randomBytes(32);
-const iv = randomBytes(16);
+// const massage = 'i love you ♥';
+// const key = randomBytes(32);
+// const iv = randomBytes(16);
 
-const cipher = createCipheriv('aes256', key, iv)
+// const cipher = createCipheriv('aes256', key, iv)
 
-/// Encrypt
+// /// Encrypt
 
-const encryptrdMassage = cipher.update(massage, 'utf8', 'hex') + cipher.final('hex');
-// console.log(encryptrdMassage);
+// const encryptrdMassage = cipher.update(massage, 'utf8', 'hex') + cipher.final('hex');
+// // console.log(encryptrdMassage);
 
-/// Decrypt
+// /// Decrypt
 
-const decipher = createDecipheriv('aes256', key, iv);
-const decryptedMassage = decipher.update(encryptrdMassage, 'hex', 'utf8') + decipher.final('utf8');
+// const decipher = createDecipheriv('aes256', key, iv);
+// const decryptedMassage = decipher.update(encryptrdMassage, 'hex', 'utf8') + decipher.final('utf8');
 
-console.log(massage + ' -> ' + encryptrdMassage + ' -> ' + decryptedMassage);
+// console.log(massage + ' -> ' + encryptrdMassage + ' -> ' + decryptedMassage);
 
 /// ------------------------------------------- Ecnryption public-key
 
-const { generateKeyPareCync } = require('crypto');
+const { generateKeyPairSync } = require('crypto');
 const { publicKey, privateKey } = generateKeyPareSync('rsa', {
     modulusLength: 2048,
     publicKeyEncoding: {
@@ -106,7 +106,7 @@ const { publicKey, privateKey } = generateKeyPareSync('rsa', {
 console.log(publicKey);
 console.log(privateKey);
 
-module.exports = {
-    privateKey, publicKey
-}
+// module.exports = {
+//     privateKey, publicKey
+// }
 
