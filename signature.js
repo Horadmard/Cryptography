@@ -1,5 +1,5 @@
 const {createSign, createVerify} = require('crypto');
-const { publicKey, privateKey } = require('./keypair');
+const { publicKey, privateKey } = require('./rsa.js');
 
 const message = 'can we have a date?';
 
