@@ -82,3 +82,27 @@ const decipher = createDecipheriv('aes256', key, iv);
 const decryptedMassage = decipher.update(encryptrdMassage, 'hex', 'utf8') + decipher.final('utf8');
 
 console.log(massage + ' -> ' + encryptrdMassage + ' -> ' + decryptedMassage);
+
+/// ------------------------------------------- Ecnryption public-key
+
+const { generateKeyPareCync } = require('crypto');
+const { publicKey, privateKey } = generateKeyPareSync('rsa', {
+    modulusLength: 2048,
+    publicKeyEncoding: {
+        type: 'pkcs8',
+        format: 'pem',
+    }
+
+    privateKeyEncoding: {
+        type: 'pkcs8',
+        format: 'pem',
+        // cipher : 'aes-256-cbc'
+        // passphrase : 'top secret'
+    }
+
+
+});
+
+console.log(publicKey);
+console.log(privateKey);
+
